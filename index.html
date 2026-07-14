@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7b267" />
+  <title>오늘의 명언 · 아침 9시 알림</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="sun" aria-hidden="true"></div>
+      <p class="date" id="date">—</p>
+      <h1>오늘의 명언</h1>
+      <p class="subtitle">매일 아침 9시, 세 개의 문장으로 하루를 시작하세요.</p>
+    </header>
+
+    <section class="notify-card">
+      <div class="notify-info">
+        <span class="bell" aria-hidden="true">🔔</span>
+        <div>
+          <p class="notify-title" id="notifyTitle">9시 알림 켜기</p>
+          <p class="notify-desc" id="notifyDesc">매일 오전 9시에 오늘의 명언 알림을 받아보세요.</p>
+        </div>
+      </div>
+      <div class="notify-actions">
+        <button id="enableBtn" class="btn primary">알림 켜기</button>
+        <button id="testBtn" class="btn ghost" hidden>테스트 알림</button>
+      </div>
+    </section>
+
+    <section class="quotes" id="quotes" aria-live="polite"></section>
+
+    <footer class="foot">
+      <button id="shuffleHint" class="link" disabled>명언은 매일 자정에 새로 바뀝니다</button>
+      <p class="tiny" id="swStatus"></p>
+    </footer>
+  </main>
+
+  <script src="quotes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
