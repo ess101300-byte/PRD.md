@@ -45,21 +45,28 @@ function mulberry32(seed) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
-function pickDailyQuotes(count, d) {
-  const rng = mulberry32(daySeed(d));
-  const pool = QUOTES.map((_, i) => i);
-  const chosen = [];
-  const n = Math.min(count, pool.length);
-  for (let i = 0; i < n; i++) {
-    const idx = Math.floor(rng() * pool.length);
-    chosen.push(pool.splice(idx, 1)[0]);
-  }
-  return chosen.map((i) => QUOTES[i]);
+function strHash(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+  return h;
+}
+function catLabel(catId) {
+  const c = (typeof CATEGORIES !== "undefined" ? CATEGORIES : []).find((x) => x.id === catId);
+  return c ? c.label : "";
+}
+
+/* 오늘의 명언: 각 카테고리에서 1개씩 */
+function pickDailyOnePerCategory(d) {
+  return CATEGORIES.map((c) => {
+    const list = QUOTES.filter((q) => q.cat === c.id);
+    const rng = mulberry32(daySeed(d) + strHash(c.id));
+    return list[Math.floor(rng() * list.length)];
+  }).filter(Boolean);
 }
 
 async function showDailyNotification() {
-  const quotes = pickDailyQuotes(3, new Date());
-  const body = quotes.map((q, i) => `${i + 1}. ${q.text}`).join("\n");
+  const quotes = pickDailyOnePerCategory(new Date());
+  const body = quotes.map((q) => `[${catLabel(q.cat)}] ${q.text}`).join("\n");
   await self.registration.showNotification("📖 오늘의 명언 3개", {
     body,
     icon: "icon.svg",

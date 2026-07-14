@@ -99,6 +99,49 @@ html, body {
 .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--card-border); }
 .btn:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
 
+/* Category chips */
+.chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.chip {
+  border: 1.5px solid var(--card-border);
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  font-family: inherit; font-size: 0.88rem; font-weight: 600;
+  padding: 8px 15px; border-radius: 999px; cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+}
+.chip:active { transform: scale(0.95); }
+.chip.active {
+  color: #fff; border-color: transparent;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+.chip.active { background: var(--accent); color: var(--accent-ink); }
+.chip.active.cat-success { background: var(--c-success); color: #fff; }
+.chip.active.cat-challenge { background: var(--c-challenge); color: #fff; }
+.chip.active.cat-life { background: var(--c-life); color: #fff; }
+
+/* Category colors */
+:root {
+  --c-success: #e8862e;
+  --c-challenge: #2e9e8f;
+  --c-life: #8a6bd1;
+}
+
+/* Category badge on cards */
+.badge {
+  position: absolute; top: 16px; left: 20px;
+  font-size: 0.72rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 999px;
+  color: #fff; letter-spacing: 0.02em;
+}
+.badge.cat-success { background: var(--c-success); }
+.badge.cat-challenge { background: var(--c-challenge); }
+.badge.cat-life { background: var(--c-life); }
+
 /* Quotes */
 .quotes { display: grid; gap: 16px; }
 .quote {
@@ -106,7 +149,7 @@ html, body {
   border: 1px solid var(--card-border);
   backdrop-filter: blur(12px);
   border-radius: 20px;
-  padding: 24px 24px 20px;
+  padding: 48px 24px 20px;
   box-shadow: var(--shadow);
   position: relative;
   opacity: 0;
