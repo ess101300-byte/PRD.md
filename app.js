@@ -275,8 +275,14 @@ function scheduleMidnightRefresh() {
 }
 
 /* ---------- 초기화 ---------- */
+function renderStats() {
+  const el = document.getElementById("statCount");
+  if (el && typeof QUOTES !== "undefined") el.textContent = QUOTES.length;
+}
+
 function init() {
   renderDate();
+  renderStats();
   renderChips();
   renderQuotes();
   updateNotifyUI();

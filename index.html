@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f7b267" />
   <title>오늘의 명언 · 아침 9시 알림</title>
+  <meta name="description" content="매일 아침 9시, 성공·도전·삶 세 가지 명언으로 하루를 시작하세요. 설치가 필요 없는 무료 명언 웹앱(PWA)." />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="icon.svg" />
@@ -19,6 +20,12 @@
       <p class="date" id="date">—</p>
       <h1>오늘의 명언</h1>
       <p class="subtitle">매일 아침 9시, 세 개의 문장으로 하루를 시작하세요.</p>
+
+      <ul class="stats" aria-label="서비스 요약">
+        <li><strong id="statCount">110</strong><span>엄선한 명언</span></li>
+        <li><strong>3</strong><span>테마 카테고리</span></li>
+        <li><strong>매일</strong><span>자정 자동 갱신</span></li>
+      </ul>
     </header>
 
     <section class="notify-card">
@@ -39,9 +46,88 @@
 
     <section class="quotes" id="quotes" aria-live="polite"></section>
 
+    <!-- 이렇게 동작해요 -->
+    <section class="section how">
+      <h2 class="section-title">이렇게 동작해요</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>알림을 켜요</h3>
+          <p>버튼 한 번으로 브라우저 알림 권한을 허용하면 준비 끝. 회원가입도, 설치도 필요 없어요.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>매일 아침 9시</h3>
+          <p>성공·도전·삶 세 카테고리에서 하나씩, 오늘의 명언 3개를 알림으로 보내드려요.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>자정에 새로 고침</h3>
+          <p>날짜를 시드로 결정되어, 같은 날엔 늘 같은 명언. 자정이 지나면 새 문장으로 바뀝니다.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 이런 점이 좋아요 -->
+    <section class="section features">
+      <h2 class="section-title">이런 점이 좋아요</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <span class="feature-ico" aria-hidden="true">🗂️</span>
+          <div class="feature-body">
+            <h3>세 가지 테마</h3>
+            <p>성공·일, 도전·인내, 삶·철학. 오늘 필요한 분야만 골라볼 수 있어요.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-ico" aria-hidden="true">📴</span>
+          <div class="feature-body">
+            <h3>오프라인 지원</h3>
+            <p>명언이 앱 안에 내장되어 네트워크 없이도 동작하는 PWA입니다.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-ico" aria-hidden="true">🌗</span>
+          <div class="feature-body">
+            <h3>라이트·다크 모드</h3>
+            <p>기기 설정에 맞춰 자동으로 밝기가 전환돼 눈이 편안해요.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-ico" aria-hidden="true">🔒</span>
+          <div class="feature-body">
+            <h3>서버 없이 안전하게</h3>
+            <p>계정도, 데이터 수집도 없습니다. 모든 동작은 내 브라우저 안에서만.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 자주 묻는 질문 -->
+    <section class="section faq">
+      <h2 class="section-title">자주 묻는 질문</h2>
+      <details>
+        <summary>앱을 닫아도 9시에 알림이 오나요?</summary>
+        <p>브라우저나 설치한 앱이 실행 중이면 오전 9시에 알림이 표시됩니다. 일부 브라우저는 백그라운드 동기화로 닫혀 있어도 알림을 시도하지만(best-effort), 모든 기기에서 100% 보장되는 알림은 서버 기반 웹 푸시가 필요해 이 버전에는 포함되지 않습니다.</p>
+      </details>
+      <details>
+        <summary>매일 다른 명언이 나오나요?</summary>
+        <p>네. 날짜를 기준으로 결정되어 같은 날에는 누구에게나 같은 3개가 보이고, 자정이 지나면 새 명언으로 바뀝니다.</p>
+      </details>
+      <details>
+        <summary>홈 화면에 추가할 수 있나요?</summary>
+        <p>PWA라서 브라우저의 "홈 화면에 추가" 기능으로 설치하면 일반 앱처럼 아이콘으로 실행할 수 있어요.</p>
+      </details>
+      <details>
+        <summary>개인정보를 수집하나요?</summary>
+        <p>아니요. 서버가 없는 정적 사이트이며 알림 설정 같은 값만 내 브라우저(localStorage)에 저장됩니다.</p>
+      </details>
+    </section>
+
     <footer class="foot">
       <button id="shuffleHint" class="link" disabled>명언은 매일 자정에 새로 바뀝니다</button>
       <p class="tiny" id="swStatus"></p>
+      <p class="tiny made">☀️ 좋은 아침을 위한 작은 습관</p>
     </footer>
   </main>
 
