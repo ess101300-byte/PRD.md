@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f7b267" />
   <title>오늘의 명언 · 아침 9시 알림</title>
+  <meta name="description" content="매일 아침 9시, 성공·도전·삶 세 가지 카테고리의 명언 3개를 브라우저 알림으로 받아보세요. 설치 없이 동작하는 무료 PWA." />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="icon.svg" />
@@ -19,6 +20,7 @@
       <p class="date" id="date">—</p>
       <h1>오늘의 명언</h1>
       <p class="subtitle">매일 아침 9시, 세 개의 문장으로 하루를 시작하세요.</p>
+      <ul class="hero-stats" id="heroStats" aria-label="서비스 통계"></ul>
     </header>
 
     <section class="notify-card">
@@ -39,11 +41,108 @@
 
     <section class="quotes" id="quotes" aria-live="polite"></section>
 
+    <p class="refresh-note" id="refreshNote">
+      <span aria-hidden="true">⏳</span>
+      <span id="refreshCountdown">자정까지 남은 시간을 계산 중…</span>
+    </p>
+
+    <!-- 사용법 3단계 -->
+    <section class="section" id="how">
+      <h2 class="section-title">이렇게 사용하세요</h2>
+      <p class="section-lead">설치도, 회원가입도 필요 없어요. 세 단계면 끝납니다.</p>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <div>
+            <p class="step-title">알림을 켜세요</p>
+            <p class="step-desc">위의 <strong>알림 켜기</strong> 버튼을 누르고 권한을 허용하면 준비 끝.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <div>
+            <p class="step-title">홈 화면에 추가하세요</p>
+            <p class="step-desc">브라우저 메뉴의 <strong>홈 화면에 추가</strong>로 앱처럼 설치하면 오프라인에서도 열립니다.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <div>
+            <p class="step-title">아침마다 명언을 만나세요</p>
+            <p class="step-desc">매일 오전 9시, 카테고리별 명언 3개가 알림으로 도착합니다.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 기능 소개 -->
+    <section class="section" id="features">
+      <h2 class="section-title">무엇이 좋은가요</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <span class="feature-icon" aria-hidden="true">🎯</span>
+          <p class="feature-title">균형 잡힌 하루</p>
+          <p class="feature-desc">성공·일, 도전·인내, 삶·철학. 세 갈래에서 매일 하나씩 골라 관점의 균형을 맞춰요.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-icon" aria-hidden="true">🔁</span>
+          <p class="feature-title">매일 새롭게</p>
+          <p class="feature-desc">날짜를 시드로 결정적으로 선택돼, 같은 날엔 늘 같은 명언이지만 자정마다 바뀝니다.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-icon" aria-hidden="true">📴</span>
+          <p class="feature-title">오프라인 지원</p>
+          <p class="feature-desc">명언이 앱에 내장돼 있어 네트워크 없이도, 서버 없이도 그대로 동작해요.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-icon" aria-hidden="true">🌗</span>
+          <p class="feature-title">라이트·다크 대응</p>
+          <p class="feature-desc">기기 설정에 맞춰 밝고 어두운 테마가 자동으로 전환됩니다.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-icon" aria-hidden="true">📋</span>
+          <p class="feature-title">간편한 공유</p>
+          <p class="feature-desc">마음에 드는 문장은 카드의 복사 버튼으로 한 번에 담아 어디에든 붙여넣으세요.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-icon" aria-hidden="true">🆓</span>
+          <p class="feature-title">완전 무료</p>
+          <p class="feature-desc">광고도, 추적도, 계정도 없습니다. 데이터는 오직 이 기기 안에만 저장돼요.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2 class="section-title">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>브라우저를 닫아도 9시에 알림이 오나요?</summary>
+          <p>기기·브라우저에 따라 달라요. 설치형 PWA(예: Chrome)는 주기 백그라운드 동기화로 닫혀 있어도 알림을 시도하지만, 100% 보장되는 알림은 서버와 웹 푸시가 필요합니다. 아침에 기기를 켜서 쓰신다면 이 정적 버전으로 충분해요.</p>
+        </details>
+        <details class="faq-item">
+          <summary>왜 오늘은 다른 사람과 같은 명언이 나오나요?</summary>
+          <p>명언은 랜덤이 아니라 <em>날짜</em>를 기준으로 결정적으로 선택됩니다. 그래서 같은 날 접속하면 누구나 같은 3개를 보게 되고, 자정이 지나면 새 명언으로 바뀝니다.</p>
+        </details>
+        <details class="faq-item">
+          <summary>내 데이터는 어디에 저장되나요?</summary>
+          <p>알림 켜짐 여부 같은 최소한의 설정만 브라우저의 로컬 저장소에 보관됩니다. 서버로 전송되는 개인정보는 전혀 없습니다.</p>
+        </details>
+        <details class="faq-item">
+          <summary>명언을 직접 추가할 수 있나요?</summary>
+          <p>네. 오픈된 정적 프로젝트라 <code>quotes.js</code>의 목록에 <code>{ text, author, cat }</code> 형식으로 추가하면 바로 반영됩니다. 자세한 내용은 저장소의 README를 참고하세요.</p>
+        </details>
+      </div>
+    </section>
+
     <footer class="foot">
+      <p class="foot-cta">오늘도 좋은 하루 되세요 🌅</p>
       <button id="shuffleHint" class="link" disabled>명언은 매일 자정에 새로 바뀝니다</button>
       <p class="tiny" id="swStatus"></p>
     </footer>
   </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
   <script src="quotes.js"></script>
   <script src="app.js"></script>

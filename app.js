@@ -115,9 +115,95 @@ function renderQuotes() {
       <span class="badge cat-${q.cat}">${escapeHtml(catLabel(q.cat))}</span>
       <span class="mark">“</span>
       <p>${escapeHtml(q.text)}</p>
-      <p class="author">— ${escapeHtml(q.author)}</p>`;
+      <div class="quote-foot">
+        <p class="author">— ${escapeHtml(q.author)}</p>
+        <button class="copy-btn" type="button" aria-label="명언 복사">
+          <span aria-hidden="true">📋</span> 복사
+        </button>
+      </div>`;
+    const btn = card.querySelector(".copy-btn");
+    btn.addEventListener("click", () => copyQuote(q, btn));
     container.appendChild(card);
   });
+}
+
+/* 명언을 클립보드에 복사 */
+async function copyQuote(q, btn) {
+  const text = `“${q.text}” — ${q.author}`;
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    btn.classList.add("copied");
+    btn.innerHTML = '<span aria-hidden="true">✅</span> 복사됨';
+    showToast("명언을 복사했어요");
+    setTimeout(() => {
+      btn.classList.remove("copied");
+      btn.innerHTML = '<span aria-hidden="true">📋</span> 복사';
+    }, 1600);
+  } catch (e) {
+    showToast("복사에 실패했어요");
+  }
+}
+
+/* 하단 토스트 알림 */
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById("toast");
+  if (!el) return;
+  el.textContent = msg;
+  el.hidden = false;
+  requestAnimationFrame(() => el.classList.add("show"));
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    el.classList.remove("show");
+    setTimeout(() => { el.hidden = true; }, 220);
+  }, 1800);
+}
+
+/* 히어로 통계 렌더링 (명언 데이터에서 산출) */
+function renderHeroStats() {
+  const el = document.getElementById("heroStats");
+  if (!el) return;
+  const authors = new Set(QUOTES.map((q) => q.author)).size;
+  const stats = [
+    { num: QUOTES.length, lbl: "엄선한 명언" },
+    { num: authors, lbl: "지은이" },
+    { num: CATEGORIES.length, lbl: "카테고리" },
+  ];
+  el.innerHTML = stats
+    .map((s) => `<li><span class="num">${s.num}</span><span class="lbl">${escapeHtml(s.lbl)}</span></li>`)
+    .join("");
+}
+
+/* 자정까지 남은 시간 카운트다운 */
+let countdownTimer = null;
+function renderCountdown() {
+  const el = document.getElementById("refreshCountdown");
+  if (!el) return;
+  const now = new Date();
+  const mid = new Date();
+  mid.setHours(24, 0, 0, 0);
+  let s = Math.max(0, Math.floor((mid.getTime() - now.getTime()) / 1000));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  const pad = (n) => String(n).padStart(2, "0");
+  el.textContent = `다음 명언까지 ${pad(h)}:${pad(m)}:${pad(sec)}`;
+}
+function startCountdown() {
+  clearInterval(countdownTimer);
+  renderCountdown();
+  countdownTimer = setInterval(renderCountdown, 1000);
 }
 
 function escapeHtml(s) {
@@ -277,9 +363,11 @@ function scheduleMidnightRefresh() {
 /* ---------- 초기화 ---------- */
 function init() {
   renderDate();
+  renderHeroStats();
   renderChips();
   renderQuotes();
   updateNotifyUI();
+  startCountdown();
   scheduleMidnightRefresh();
 
   document.getElementById("enableBtn").addEventListener("click", toggleNotifications);
@@ -294,6 +382,7 @@ function init() {
       renderDate();
       renderQuotes();
       updateNotifyUI();
+      startCountdown();
       if (localStorage.getItem(LS_ENABLED) === "1") scheduleDailyNotification();
     }
   });
