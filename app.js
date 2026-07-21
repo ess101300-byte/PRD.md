@@ -107,6 +107,7 @@ function renderQuotes() {
   const quotes = currentQuotes();
   const container = document.getElementById("quotes");
   container.innerHTML = "";
+  const canShare = typeof navigator !== "undefined" && !!navigator.share;
   quotes.forEach((q, i) => {
     const card = document.createElement("article");
     card.className = "quote";
@@ -115,9 +116,62 @@ function renderQuotes() {
       <span class="badge cat-${q.cat}">${escapeHtml(catLabel(q.cat))}</span>
       <span class="mark">“</span>
       <p>${escapeHtml(q.text)}</p>
-      <p class="author">— ${escapeHtml(q.author)}</p>`;
+      <p class="author">— ${escapeHtml(q.author)}</p>
+      <div class="actions">
+        <button class="icon-btn" type="button" data-act="copy">📋 복사</button>
+        ${canShare ? '<button class="icon-btn" type="button" data-act="share">🔗 공유</button>' : ""}
+      </div>`;
+    const shareText = `"${q.text}" — ${q.author}`;
+    card.querySelector('[data-act="copy"]').addEventListener("click", () => copyQuote(shareText));
+    const shareBtn = card.querySelector('[data-act="share"]');
+    if (shareBtn) shareBtn.addEventListener("click", () => shareQuote(q.text, shareText));
     container.appendChild(card);
   });
+}
+
+/* ---------- 명언 복사 · 공유 · 토스트 ---------- */
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById("toast");
+  if (!el) return;
+  el.textContent = msg;
+  el.hidden = false;
+  // 강제 리플로우로 트랜지션 보장
+  void el.offsetWidth;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    el.classList.remove("show");
+    setTimeout(() => { el.hidden = true; }, 260);
+  }, 1800);
+}
+
+async function copyQuote(text) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    showToast("명언을 복사했어요 📋");
+  } catch (_) {
+    showToast("복사에 실패했어요");
+  }
+}
+
+async function shareQuote(title, text) {
+  try {
+    await navigator.share({ title: "오늘의 명언", text });
+  } catch (_) {
+    /* 사용자가 취소했거나 미지원 — 무시 */
+  }
 }
 
 function escapeHtml(s) {
@@ -274,9 +328,20 @@ function scheduleMidnightRefresh() {
   }, next.getTime() - now.getTime());
 }
 
+/* ---------- 통계 채우기 ---------- */
+function renderStats() {
+  const total = document.getElementById("statCount");
+  if (total) total.textContent = String(QUOTES.length);
+  document.querySelectorAll(".cat-count[data-cat]").forEach((el) => {
+    const n = quotesOf(el.getAttribute("data-cat")).length;
+    el.textContent = `${n}개`;
+  });
+}
+
 /* ---------- 초기화 ---------- */
 function init() {
   renderDate();
+  renderStats();
   renderChips();
   renderQuotes();
   updateNotifyUI();
@@ -284,6 +349,15 @@ function init() {
 
   document.getElementById("enableBtn").addEventListener("click", toggleNotifications);
   document.getElementById("testBtn").addEventListener("click", showQuoteNotification);
+
+  const refreshBtn = document.getElementById("refreshBtn");
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", () => {
+      renderDate();
+      renderQuotes();
+      showToast("오늘의 문장을 다시 불러왔어요 ↻");
+    });
+  }
 
   registerSW().then(() => {
     if (localStorage.getItem(LS_ENABLED) === "1") scheduleDailyNotification();
