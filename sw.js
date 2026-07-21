@@ -1,5 +1,5 @@
 /* Service Worker - 오프라인 캐시 + 알림 + 주기 동기화 */
-const CACHE = "quotes-v1";
+const CACHE = "quotes-v2";
 const ASSETS = [
   "./",
   "index.html",

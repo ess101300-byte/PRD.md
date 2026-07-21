@@ -84,6 +84,13 @@ function renderDate() {
     `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 (${days[now.getDay()]})`;
 }
 
+function renderStats() {
+  const count = document.getElementById("statCount");
+  const cats = document.getElementById("statCats");
+  if (count) count.textContent = `${QUOTES.length}개`;
+  if (cats) cats.textContent = `${CATEGORIES.length}개`;
+}
+
 function renderChips() {
   const bar = document.getElementById("chips");
   const items = [{ id: null, label: "오늘의 명언" }, ...CATEGORIES];
@@ -277,6 +284,7 @@ function scheduleMidnightRefresh() {
 /* ---------- 초기화 ---------- */
 function init() {
   renderDate();
+  renderStats();
   renderChips();
   renderQuotes();
   updateNotifyUI();

@@ -69,6 +69,25 @@ html, body {
 .hero h1 { font-size: clamp(1.9rem, 6vw, 2.6rem); margin: 4px 0 8px; }
 .subtitle { color: var(--ink-soft); font-size: 1rem; }
 
+/* Hero stats */
+.stats {
+  list-style: none;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 10px;
+  margin: 22px auto 0;
+  max-width: 460px;
+}
+.stats li {
+  flex: 1 1 120px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 12px 10px;
+}
+.stats strong { display: block; font-size: 1.35rem; color: var(--accent); line-height: 1.1; }
+.stats span { display: block; margin-top: 4px; font-size: 0.78rem; color: var(--ink-soft); }
+
 /* Notify card */
 .notify-card {
   display: flex; flex-wrap: wrap; gap: 16px;
@@ -171,7 +190,102 @@ html, body {
   display: grid; place-items: center;
 }
 
+/* Content sections */
+.section { margin-top: 48px; }
+.section-title {
+  text-align: center;
+  font-size: clamp(1.4rem, 4.5vw, 1.75rem);
+  margin-bottom: 6px;
+}
+.section-sub {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+/* How it works — steps */
+.steps { list-style: none; display: grid; gap: 14px; }
+.step {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.step-num {
+  flex: none;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 1rem;
+  color: var(--accent-ink);
+  background: var(--accent);
+  box-shadow: 0 4px 12px rgba(247, 148, 62, 0.4);
+}
+.step h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.step p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; word-break: keep-all; }
+
+/* Features grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.feature {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.feature:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(180, 120, 60, 0.24); }
+.feature-ico {
+  display: inline-grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 12px;
+  font-size: 1.4rem;
+  background: rgba(247, 148, 62, 0.14);
+  margin-bottom: 12px;
+}
+.feature h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.feature p { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; word-break: keep-all; }
+
+/* FAQ accordion */
+.faq { display: grid; gap: 10px; }
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 4px 20px;
+  box-shadow: var(--shadow);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600; font-size: 1rem;
+  padding: 15px 28px 15px 0;
+  position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute; right: 0; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem; font-weight: 400; color: var(--accent);
+  transition: transform .2s ease;
+}
+.faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq-item p {
+  color: var(--ink-soft); font-size: 0.92rem; line-height: 1.65;
+  padding: 0 0 16px; margin: 0;
+  word-break: keep-all;
+}
+
 /* Footer */
-.foot { text-align: center; margin-top: 30px; }
+.foot { text-align: center; margin-top: 48px; }
 .link { background: none; border: none; color: var(--ink-soft); font-size: 0.85rem; font-family: inherit; }
 .tiny { font-size: 0.75rem; color: var(--ink-soft); margin-top: 8px; opacity: .8; }
