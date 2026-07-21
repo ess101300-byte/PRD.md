@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본초(가칭) — 두피가 편해지는 pH4.5 한방 샴푸</title>
+<meta name="description" content="강알칼리성 세정으로 예민해진 두피를 위한 약산성 pH4.5 한방 컨디셔닝 샴푸. 헤어샵 현장에서 시작된 브랜드 '본초'의 얼리버드를 만나보세요.">
+<meta name="theme-color" content="#EFEEE4">
+<meta property="og:title" content="본초(가칭) — pH4.5 한방 컨디셔닝 샴푸">
+<meta property="og:description" content="두피가 편해지면 머리카락은 저절로 부드러워집니다. 약산성 pH4.5, 무향, 무설파이트 한방 샴푸.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg: #EFEEE4;
+    --bg-soft: #F7F6F0;
+    --ink: #1E2B22;
+    --ink-soft: #45543C;
+    --sage: #93A888;
+    --ochre: #B9843A;
+    --ochre-soft: #E7D3AE;
+    --line: rgba(30,43,34,0.14);
+    --white: #FFFFFF;
+    --radius: 2px;
+    --maxw: 1120px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Pretendard', -apple-system, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Noto Serif KR', serif;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--ochre-soft);}
+  :focus-visible{outline:2px solid var(--ink); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  .scroll-progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:var(--ochre); z-index:70; transition:width .1s linear;
+  }
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  .js .reveal{opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease;}
+  .js .reveal.in{opacity:1; transform:none;}
+  .js .reveal.d1{transition-delay:.08s;}
+  .js .reveal.d2{transition-delay:.16s;}
+  .js .reveal.d3{transition-delay:.24s;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:60;
+    background:rgba(239,238,228,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .brand{display:flex; align-items:baseline; gap:8px;}
+  .brand .name{font-size:22px; font-weight:700;}
+  .brand .tag{
+    font-size:11px; color:var(--ink-soft); border:1px solid var(--line);
+    padding:2px 7px; border-radius:20px; font-family:'Pretendard';
+  }
+  .navlinks{display:flex; gap:30px; font-size:14px;}
+  .navlinks a{opacity:0.7; transition:opacity .2s; position:relative;}
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:-6px; width:0; height:1.5px;
+    background:var(--ochre); transition:width .25s;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{opacity:1;}
+  .navlinks a.active{opacity:1;}
+  .navlinks a.active::after{width:100%;}
+  .nav-right{display:flex; align-items:center; gap:14px;}
+  .nav-cta{
+    font-size:13px; background:var(--ink); color:var(--bg-soft);
+    padding:10px 18px; border-radius:20px;
+  }
+  .nav-cta:hover{background:var(--ink-soft);}
+  .menu-toggle{
+    display:none; width:40px; height:40px; border:1px solid var(--line);
+    border-radius:10px; background:var(--white); cursor:pointer;
+    align-items:center; justify-content:center; flex-direction:column; gap:4px;
+  }
+  .menu-toggle span{display:block; width:18px; height:2px; background:var(--ink); transition:transform .25s, opacity .2s;}
+  .mobile-menu{
+    display:none; flex-direction:column; gap:2px;
+    border-bottom:1px solid var(--line); background:var(--bg);
+  }
+  .mobile-menu a{padding:15px 28px; font-size:15px; border-top:1px solid var(--line);}
+  .mobile-menu.open{display:flex;}
+  @media (max-width:820px){
+    .navlinks{display:none;}
+    .nav-cta{display:none;}
+    .menu-toggle{display:flex;}
+  }
+
+  /* ---------- pH SIGNATURE SCALE (recurring motif) ---------- */
+  .ph-scale{
+    position:relative; height:8px; border-radius:8px;
+    background:linear-gradient(90deg,
+      #C0392B 0%, #D98A3D 18%, #E7C34A 32%,
+      #93A888 50%, #6E9C8F 62%, #4C7B8C 78%, #3B5C8C 100%);
+  }
+  .ph-scale .mark{
+    position:absolute; top:50%; width:2px; height:14px; background:var(--ink);
+    opacity:0.25; transform:translate(-50%,-50%);
+  }
+  .ph-scale .pin{
+    position:absolute; top:50%; left:32.1%; transform:translate(-50%,-50%);
+    animation:pinDrop .9s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes pinDrop{from{top:-40%; opacity:0;} to{top:50%; opacity:1;}}
+  .ph-scale .pin .dot{
+    width:22px; height:22px; border-radius:50%;
+    background:var(--white); border:3px solid var(--ink);
+  }
+  .ph-scale .pin .label{
+    position:absolute; top:-34px; left:50%; transform:translateX(-50%);
+    font-size:12px; white-space:nowrap;
+  }
+  .ph-scale-labels{
+    display:flex; justify-content:space-between; font-size:11px;
+    color:var(--ink-soft); margin-top:8px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:80px 0 56px;}
+  .hero .eyebrow{
+    font-size:13px; letter-spacing:0.06em; color:var(--ink-soft);
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .hero .eyebrow::before{content:''; width:22px; height:1px; background:var(--ink-soft);}
+  .hero h1{
+    font-size:clamp(34px, 5.2vw, 58px);
+    font-weight:700; line-height:1.28; letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero h1 em{font-style:normal; color:var(--ochre);}
+  .hero .sub{margin-top:22px; font-size:18px; color:var(--ink-soft); max-width:46ch;}
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:end;
+    margin-top:44px;
+  }
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+  .cta-row{display:flex; gap:12px; margin-top:32px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--ink); color:var(--bg-soft); padding:15px 26px;
+    border-radius:30px; font-size:15px; font-weight:600; border:none; cursor:pointer;
+    transition:transform .15s ease, background .2s;
+  }
+  .btn-primary:hover{background:var(--ink-soft); transform:translateY(-1px);}
+  .btn-ghost{
+    padding:15px 22px; border-radius:30px; font-size:15px; border:1px solid var(--line);
+    background:transparent; cursor:pointer;
+  }
+  .btn-ghost:hover{background:var(--white);}
+  .hero-badges{
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;
+  }
+  .hero-badges span{
+    font-size:12px; color:var(--ink-soft); background:var(--white);
+    border:1px solid var(--line); border-radius:20px; padding:6px 12px;
+  }
+
+  .ph-card{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:28px;
+  }
+  .ph-card .headline{display:flex; align-items:baseline; gap:6px; margin-bottom:6px;}
+  .ph-card .headline .num{font-size:40px; font-weight:700;}
+  .ph-card .headline .unit{font-size:16px; color:var(--ink-soft);}
+  .ph-card .desc{font-size:13px; color:var(--ink-soft); margin-bottom:20px;}
+
+  .scroll-cue{
+    display:flex; justify-content:center; margin-top:48px;
+    font-size:11px; color:var(--ink-soft); letter-spacing:0.1em;
+  }
+  .scroll-cue span{display:flex; flex-direction:column; align-items:center; gap:8px; animation:bob 1.8s ease-in-out infinite;}
+  .scroll-cue .arrow{width:1px; height:26px; background:var(--ink-soft); opacity:.5;}
+  @keyframes bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(6px);}}
+
+  /* ---------- SECTION shared ---------- */
+  section{padding:92px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .kicker{
+    font-size:12px; font-family:'IBM Plex Mono'; color:var(--ochre);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; display:block;
+  }
+  .section-head h2{font-size:clamp(26px,3.2vw,36px); font-weight:600; line-height:1.4;}
+  .section-head .lead{margin-top:14px; color:var(--ink-soft); font-size:15px;}
+  .divider{height:1px; background:var(--line); max-width:var(--maxw); margin:0 auto;}
+
+  /* ---------- PROBLEM ---------- */
+  .problem{background:var(--bg-soft);}
+  .problem-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  }
+  @media (max-width:760px){.problem-grid{grid-template-columns:1fr;}}
+  .problem-card{background:var(--bg-soft); padding:32px 26px; transition:background .2s;}
+  .problem-card:hover{background:var(--white);}
+  .problem-card .stat{font-family:'IBM Plex Mono'; font-size:34px; color:var(--ochre); margin-bottom:10px;}
+  .problem-card p{font-size:14.5px; color:var(--ink-soft);}
+
+  /* ---------- SOLUTION ---------- */
+  .solution-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
+  @media (max-width:860px){.solution-grid{grid-template-columns:1fr;}}
+  .bottle-visual{
+    aspect-ratio:3/4; background:linear-gradient(160deg,#F7F6F0,#E7D3AE 130%);
+    border-radius:20px; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .bottle-visual .bottle{
+    width:38%; height:62%; background:var(--white); border:2px solid var(--ink);
+    border-radius:16px 16px 8px 8px; position:relative;
+  }
+  .bottle-visual .bottle::before{
+    content:''; position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    width:34%; height:18px; background:var(--ink); border-radius:6px 6px 0 0;
+  }
+  .bottle-visual .bottle .tag{
+    position:absolute; top:24%; left:8%; right:8%;
+    font-family:'IBM Plex Mono'; font-size:10px; text-align:center; color:var(--ink-soft);
+  }
+  .bottle-visual .caption{
+    position:absolute; bottom:18px; left:18px; right:18px;
+    font-size:12px; color:var(--ink-soft);
+  }
+  .feature-list{display:flex; flex-direction:column; gap:0;}
+  .feature{
+    display:grid; grid-template-columns:auto 1fr; gap:18px;
+    padding:22px 0; border-top:1px solid var(--line);
+  }
+  .feature:last-child{border-bottom:1px solid var(--line);}
+  .feature .icon{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--ink);
+    display:flex; align-items:center; justify-content:center; font-size:14px; font-family:'IBM Plex Mono';
+    flex-shrink:0;
+  }
+  .feature h3{font-size:17px; font-weight:600; margin-bottom:4px;}
+  .feature p{font-size:14px; color:var(--ink-soft);}
+
+  /* ---------- COMPARE TABLE ---------- */
+  .compare{background:var(--bg-soft);}
+  .compare-table{
+    border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--white);
+  }
+  .compare-row{
+    display:grid; grid-template-columns:1fr 1.2fr 1.2fr;
+    border-top:1px solid var(--line);
+  }
+  .compare-row:first-child{border-top:none;}
+  .compare-row > div{padding:18px 22px; font-size:14px;}
+  .compare-row .rh{font-weight:600; color:var(--ink); background:var(--bg-soft);}
+  .compare-row .cell-generic{color:var(--ink-soft);}
+  .compare-row .cell-boncho{color:var(--ink); background:rgba(147,168,136,0.10); font-weight:500;}
+  .compare-head > div{font-family:'IBM Plex Mono'; font-size:12px; text-transform:uppercase; letter-spacing:0.06em; padding-top:16px; padding-bottom:16px;}
+  .compare-head .cell-boncho{color:var(--ochre);}
+  @media (max-width:760px){
+    .compare-row{grid-template-columns:1fr 1fr; }
+    .compare-row .rh{grid-column:1 / -1; background:var(--bg-soft); padding-bottom:6px; font-size:13px;}
+    .compare-head{display:none;}
+    .compare-row .cell-generic::before{content:'일반 샴푸 · '; font-size:11px; color:var(--ochre);}
+    .compare-row .cell-boncho::before{content:'본초 · '; font-size:11px; color:var(--ochre);}
+  }
+
+  /* ---------- INGREDIENTS ---------- */
+  .ing-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  @media (max-width:860px){.ing-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.ing-grid{grid-template-columns:1fr;}}
+  .ing-card{
+    border:1px solid var(--line); border-radius:14px; padding:24px; background:var(--white);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .ing-card:hover{transform:translateY(-3px); box-shadow:0 14px 30px rgba(30,43,34,0.08);}
+  .ing-card .han{font-family:'Noto Serif KR'; font-size:26px; color:var(--sage); margin-bottom:6px;}
+  .ing-card h3{font-size:16px; margin-bottom:8px; font-weight:600;}
+  .ing-card p{font-size:13px; color:var(--ink-soft);}
+  .ing-card .use{display:inline-block; margin-top:12px; font-size:11px; color:var(--ochre); font-family:'IBM Plex Mono';}
+  .ing-note{margin-top:26px; font-size:12.5px; color:var(--ink-soft); border-left:2px solid var(--ochre-soft); padding-left:14px; max-width:70ch;}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:760px){.howto-grid{grid-template-columns:1fr;}}
+  .howto-step{padding-top:20px; border-top:2px solid var(--ink);}
+  .howto-step .n{font-family:'IBM Plex Mono'; font-size:13px; color:var(--ochre); margin-bottom:12px;}
+  .howto-step h3{font-size:18px; margin-bottom:8px; font-weight:600;}
+  .howto-step p{font-size:14px; color:var(--ink-soft);}
+
+  /* ---------- SPEC ---------- */
+  .spec{background:var(--ink); color:var(--bg-soft);}
+  .spec .kicker{color:var(--ochre-soft);}
+  .spec .section-head h2{color:var(--bg-soft);}
+  .spec-table{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(247,246,240,0.16); border:1px solid rgba(247,246,240,0.16); border-radius:12px; overflow:hidden;}
+  @media (max-width:640px){.spec-table{grid-template-columns:1fr;}}
+  .spec-row{background:var(--ink); padding:20px 24px; display:flex; justify-content:space-between; gap:16px; align-items:baseline;}
+  .spec-row .k{font-size:13px; color:rgba(247,246,240,0.6);}
+  .spec-row .v{font-size:15px; font-weight:500; text-align:right;}
+  .spec-row .v small{font-size:11px; color:var(--ochre-soft); display:block; font-weight:400;}
+
+  /* ---------- TRUST ---------- */
+  .trust{background:var(--bg-soft);}
+  .trust-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:860px){.trust-grid{grid-template-columns:1fr;}}
+  .trust-card{
+    border:1px solid var(--line); border-radius:12px; padding:30px 26px; background:var(--white);
+  }
+  .trust-card .idx{font-family:'IBM Plex Mono'; font-size:12px; color:var(--sage); margin-bottom:16px;}
+  .trust-card h3{font-size:18px; margin-bottom:10px; font-weight:600;}
+  .trust-card p{font-size:14px; color:var(--ink-soft);}
+  .trust-note{margin-top:28px; font-size:12.5px; color:var(--ink-soft); border-left:2px solid var(--ochre-soft); padding-left:14px;}
+
+  /* ---------- ROADMAP ---------- */
+  .roadmap{background:var(--ink); color:var(--bg-soft);}
+  .roadmap .kicker{color:var(--ochre-soft);}
+  .roadmap .section-head h2{color:var(--bg-soft);}
+  .timeline{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+  @media (max-width:760px){.timeline{grid-template-columns:1fr;}}
+  .tl-item{padding:28px 22px 0 0; border-top:2px solid rgba(247,246,240,0.24); position:relative;}
+  .tl-item::before{content:''; position:absolute; top:-7px; left:0; width:12px; height:12px; border-radius:50%; background:var(--ochre);}
+  .tl-item.done::before{background:var(--sage);}
+  .tl-item .q{font-family:'IBM Plex Mono'; font-size:12px; color:var(--ochre-soft); margin-bottom:10px;}
+  .tl-item h3{font-size:16px; margin-bottom:6px; font-weight:600; color:var(--bg-soft);}
+  .tl-item p{font-size:13px; color:rgba(247,246,240,0.65);}
+  .tl-item .status{display:inline-block; margin-top:10px; font-size:11px; font-family:'IBM Plex Mono'; padding:2px 8px; border-radius:12px; border:1px solid rgba(247,246,240,0.3);}
+  .roadmap-note{margin-top:28px; font-size:12.5px; color:rgba(247,246,240,0.55); border-left:2px solid var(--ochre-soft); padding-left:14px;}
+
+  /* ---------- FOUNDER ---------- */
+  .founder-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:center;}
+  @media (max-width:860px){.founder-grid{grid-template-columns:1fr;}}
+  .founder-photo{
+    aspect-ratio:4/5; background:var(--bg-soft); border:1px solid var(--line);
+    border-radius:14px; display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-size:13px;
+  }
+  .founder-quote{font-family:'Noto Serif KR'; font-size:clamp(20px,2.4vw,26px); line-height:1.6; font-weight:500;}
+  .founder-quote span{color:var(--ochre);}
+  .founder-cred{margin-top:24px; font-size:13.5px; color:var(--ink-soft); display:flex; gap:20px; flex-wrap:wrap;}
+  .founder-cred div{padding-left:14px; border-left:1px solid var(--line);}
+  .founder-body{margin-top:24px; font-size:14.5px; color:var(--ink-soft); max-width:52ch;}
+
+  /* ---------- SALON NETWORK ---------- */
+  .salon{background:var(--bg-soft);}
+  .salon-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
+  @media (max-width:860px){.salon-grid{grid-template-columns:1fr;}}
+  .map-visual{
+    aspect-ratio:1/1; border:1px solid var(--line); border-radius:14px; position:relative;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(185,132,58,0.18), transparent 40%),
+      radial-gradient(circle at 65% 60%, rgba(147,168,136,0.22), transparent 45%),
+      var(--white);
+    overflow:hidden;
+  }
+  .map-visual .dot{
+    position:absolute; width:8px; height:8px; border-radius:50%; background:var(--ochre);
+    box-shadow:0 0 0 4px rgba(185,132,58,0.18);
+  }
+  .map-visual .dot::after{
+    content:''; position:absolute; inset:-4px; border-radius:50%; border:1px solid var(--ochre);
+    opacity:0; animation:ping 2.6s ease-out infinite;
+  }
+  @keyframes ping{0%{opacity:.6; transform:scale(.6);} 80%,100%{opacity:0; transform:scale(2.4);}}
+  .map-visual .count{
+    position:absolute; bottom:20px; left:20px; background:var(--white);
+    border:1px solid var(--line); border-radius:10px; padding:12px 16px;
+  }
+  .map-visual .count .num{font-family:'IBM Plex Mono'; font-size:22px; font-weight:600;}
+  .map-visual .count .lbl{font-size:11px; color:var(--ink-soft);}
+
+  /* ---------- CTA / EARLY ACCESS ---------- */
+  .early{background:var(--ochre-soft); border-radius:24px; padding:60px 48px; margin:0 auto; max-width:var(--maxw);}
+  @media (max-width:640px){.early{padding:40px 22px;}}
+  .early-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;}
+  @media (max-width:860px){.early-grid{grid-template-columns:1fr;}}
+  .early h2{font-size:clamp(24px,3vw,32px); margin-bottom:14px;}
+  .early p{color:var(--ink-soft); font-size:15px; max-width:42ch;}
+  .early ul{list-style:none; margin-top:18px; display:flex; flex-direction:column; gap:8px;}
+  .early ul li{font-size:14px; color:var(--ink-soft); padding-left:22px; position:relative;}
+  .early ul li::before{content:'✓'; position:absolute; left:0; color:var(--ochre); font-weight:700;}
+  form.waitlist{display:flex; flex-direction:column; gap:12px;}
+  form.waitlist input[type=text], form.waitlist input[type=email]{
+    width:100%; padding:14px 16px; border:1px solid var(--ink); border-radius:30px;
+    font-size:14px; background:var(--bg-soft); font-family:inherit;
+  }
+  form.waitlist input:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  form.waitlist .field-err{border-color:#C0392B;}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+  .radio-row{display:flex; gap:16px; font-size:13px; color:var(--ink-soft); margin-top:2px; flex-wrap:wrap;}
+  .radio-row label{display:flex; align-items:center; gap:6px; cursor:pointer;}
+  .consent{display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--ink-soft); margin-top:2px;}
+  .consent input{margin-top:3px;}
+  .waitlist-note{font-size:11.5px; color:var(--ink-soft); margin-top:2px;}
+  .err-text{font-size:12px; color:#8f2a1e; min-height:0;}
+  #waitlist-msg{
+    display:none; background:var(--ink); color:var(--bg-soft); padding:18px 20px;
+    border-radius:14px; font-size:14px; line-height:1.5;
+  }
+  #waitlist-msg strong{color:var(--ochre-soft);}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px;}
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:22px 0; display:flex; justify-content:space-between; align-items:center; gap:16px;
+    font-size:16px; font-weight:600; color:var(--ink); font-family:'Pretendard';
+  }
+  .faq-q .plus{font-family:'IBM Plex Mono'; font-size:18px; transition:transform .25s; flex-shrink:0;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease; font-size:14.5px; color:var(--ink-soft);}
+  .faq-a p{padding-bottom:22px; max-width:60ch;}
+
+  /* ---------- PARTNER / FOOTER ---------- */
+  footer{background:var(--ink); color:rgba(247,246,240,0.8); padding:72px 0 32px;}
+  .partner-box{
+    display:grid; grid-template-columns:1.3fr 0.7fr; gap:40px;
+    padding-bottom:48px; border-bottom:1px solid rgba(247,246,240,0.16);
+  }
+  @media (max-width:760px){.partner-box{grid-template-columns:1fr;}}
+  .partner-box h2{color:var(--bg-soft); font-size:24px; margin-bottom:12px;}
+  .partner-box p{font-size:14px; color:rgba(247,246,240,0.65); max-width:48ch;}
+  .partner-actions{display:flex; flex-direction:column; gap:10px; justify-content:center;}
+  .partner-actions a{
+    border:1px solid rgba(247,246,240,0.3); border-radius:30px; padding:13px 20px;
+    font-size:13.5px; text-align:center; transition:background .2s;
+  }
+  .partner-actions a:hover{background:rgba(247,246,240,0.08);}
+  .footer-links{display:flex; gap:24px; flex-wrap:wrap; padding:28px 0; font-size:13px; color:rgba(247,246,240,0.6);}
+  .footer-links a:hover{color:var(--bg-soft);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:24px;
+    border-top:1px solid rgba(247,246,240,0.12);
+    font-size:12px; color:rgba(247,246,240,0.45); flex-wrap:wrap; gap:12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <span class="name serif">본초</span>
+      <span class="tag">가칭 · 브랜드명 미확정</span>
+    </div>
+    <div class="navlinks">
+      <a href="#problem">문제</a>
+      <a href="#solution">제품</a>
+      <a href="#ingredients">성분</a>
+      <a href="#compare">비교</a>
+      <a href="#trust">신뢰 근거</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="#early" class="nav-cta">얼리버드 등록</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#problem">문제</a>
+    <a href="#solution">제품</a>
+    <a href="#ingredients">성분</a>
+    <a href="#compare">비교</a>
+    <a href="#trust">신뢰 근거</a>
+    <a href="#salon">헤어샵 네트워크</a>
+    <a href="#faq">FAQ</a>
+    <a href="#early">얼리버드 등록</a>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow mono">HANBANG HAIRCARE · pH 4.5</span>
+      <h1>두피가 편해지면<br>머리카락은 <em>저절로</em> 부드러워집니다</h1>
+      <p class="sub">강알칼리성 세정이 두피를 자극한다는 걸, 현장에서 가장 먼저 본 건 헤어샵이었습니다.
+        본초는 한방 처방을 가장 가벼운 언어로 번역해, 약산성 pH4.5로 두피 자극은 줄이고
+        컨디셔닝 효과는 그대로 남겼습니다.</p>
+
+      <div class="hero-grid">
+        <div>
+          <div class="cta-row">
+            <button class="btn-primary" onclick="document.getElementById('early').scrollIntoView({behavior:'smooth'})">얼리버드 알림 받기</button>
+            <a href="#solution" class="btn-ghost">제품 자세히 보기</a>
+          </div>
+          <div class="hero-badges">
+            <span>약산성 pH 4.5</span>
+            <span>무향 처리</span>
+            <span>무설파이트</span>
+            <span>무파라벤</span>
+            <span>린스리스</span>
+            <span>PCR 패키징</span>
+          </div>
+        </div>
+
+        <div class="ph-card">
+          <div class="headline">
+            <span class="num mono">4.5</span>
+            <span class="unit">pH · 약산성 두피 밸런스</span>
+          </div>
+          <p class="desc">일반 샴푸는 대개 pH 8~9의 강알칼리성입니다. 본초는 건강한 두피의 산성막 범위(pH 4.5~5.5) 안에서 세정합니다.</p>
+          <div class="ph-scale">
+            <div class="mark" style="left:0%"></div>
+            <div class="mark" style="left:50%"></div>
+            <div class="mark" style="left:100%"></div>
+            <div class="pin">
+              <span class="label mono">4.5</span>
+              <div class="dot"></div>
+            </div>
+          </div>
+          <div class="ph-scale-labels mono">
+            <span>0 산성</span><span>7 중성</span><span>14 알칼리성</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true">
+        <span class="mono">SCROLL<div class="arrow"></div></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ================= PROBLEM ================= -->
+  <section class="problem" id="problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">WHY WE STARTED</span>
+        <h2 class="serif">헤어샵 의자 위에서 가장 많이 들은 말</h2>
+        <p class="lead">실험실이 아니라 시술 의자 위에서 반복해서 들려온 세 가지 불편에서 본초는 시작됐습니다.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="stat mono">01</div>
+          <p><strong>"머리 감을 때마다 두피가 따가워요."</strong><br>강알칼리성 세정 성분이 두피 자극과 예민함으로 이어지는 경우를 현장에서 가장 자주 마주했습니다.</p>
+        </div>
+        <div class="problem-card reveal d1">
+          <div class="stat mono">02</div>
+          <p><strong>"순한 샴푸는 다 뻣뻣해요."</strong><br>저자극 제품일수록 컨디셔닝력이 약해 린스·트리트먼트를 따로 써야 하는 불편이 반복됐습니다.</p>
+        </div>
+        <div class="problem-card reveal d2">
+          <div class="stat mono">03</div>
+          <p><strong>"한방 제품은 향이 부담스러워요."</strong><br>한방 특유의 무겁고 진한 향 때문에 정작 필요한 사람들이 오히려 사용을 피하는 경우가 많았습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOLUTION ================= -->
+  <section id="solution">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">THE PRODUCT</span>
+        <h2 class="serif">한방을, 가장 가벼운 언어로</h2>
+        <p class="lead">더하기보다 덜어내는 방향으로. 두피에 닿는 순간부터 헹궈낸 뒤까지, 네 가지 원칙으로 설계했습니다.</p>
+      </div>
+      <div class="solution-grid">
+        <div class="bottle-visual reveal">
+          <div class="bottle"><span class="tag mono">BONCHO<br>pH 4.5</span></div>
+          <span class="caption">약산성 컨디셔닝 샴푸 (목업 이미지 · 실제 패키지 디자인 별도 진행)</span>
+        </div>
+        <div class="feature-list reveal d1">
+          <div class="feature">
+            <div class="icon mono">pH</div>
+            <div><h3>약산성 4.5, 두피 자극은 줄이고</h3><p>건강한 두피가 갖는 산성막 범위를 그대로 따라가는 세정 밸런스입니다.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon mono">◑</div>
+            <div><h3>컨디셔닝까지 한 번에</h3><p>린스 없이도 모발이 뻣뻣하지 않도록, 레시피 단계에서부터 컨디셔닝 성분 구조를 함께 설계했습니다.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon mono">○</div>
+            <div><h3>무향 처리</h3><p>한방 특유의 진한 향을 덜어내고, 향에 예민한 분들도 부담 없이 매일 쓸 수 있도록 만들었습니다.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon mono">✓</div>
+            <div><h3>무설파이트 · 무파라벤 · PCR 패키징</h3><p>두피에 닿는 성분부터 다 쓴 뒤 남는 용기까지, 만드는 과정 전체를 다시 설계했습니다.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INGREDIENTS ================= -->
+  <section id="ingredients">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">HANBANG BOTANICALS</span>
+        <h2 class="serif">전통적으로 머리를 맡겨온 소재들</h2>
+        <p class="lead">예로부터 두피와 모발 관리에 쓰여온 한방 소재를 중심으로 성분을 구성하고 있습니다. 아래는 검토 중인 후보 소재입니다.</p>
+      </div>
+      <div class="ing-grid">
+        <div class="ing-card reveal">
+          <div class="han">菖蒲</div>
+          <h3>창포</h3>
+          <p>단오에 머리를 감던 풍습으로 잘 알려진, 전통적으로 두피 세정에 쓰여온 대표 소재.</p>
+          <span class="use mono">검토 성분</span>
+        </div>
+        <div class="ing-card reveal d1">
+          <div class="han">何首烏</div>
+          <h3>하수오</h3>
+          <p>한방에서 오랜 시간 모발 관리 맥락으로 다뤄져 온 뿌리 소재.</p>
+          <span class="use mono">검토 성분</span>
+        </div>
+        <div class="ing-card reveal d2">
+          <div class="han">魚腥草</div>
+          <h3>어성초</h3>
+          <p>두피를 산뜻하게 다스리는 목적으로 민간에서 널리 사용되어 온 식물.</p>
+          <span class="use mono">검토 성분</span>
+        </div>
+        <div class="ing-card reveal d3">
+          <div class="han">綠茶</div>
+          <h3>녹차 추출물</h3>
+          <p>가볍고 산뜻한 세정감을 더하기 위해 함께 검토하고 있는 소재.</p>
+          <span class="use mono">검토 성분</span>
+        </div>
+      </div>
+      <p class="ing-note">※ 위 소재는 전통적 사용 맥락을 소개한 것으로, 특정 효능·효과를 보장하지 않습니다. 최종 전성분표는 처방 확정 및 화장품 표시광고 규정 검토 후 출시 시점에 공개됩니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= COMPARE ================= -->
+  <section class="compare" id="compare">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">AT A GLANCE</span>
+        <h2 class="serif">일반 샴푸와 무엇이 다른가</h2>
+        <p class="lead">화려한 수식어 대신, 항목별로 나란히 두고 비교했습니다.</p>
+      </div>
+      <div class="compare-table reveal d1">
+        <div class="compare-row compare-head">
+          <div class="rh">항목</div>
+          <div class="cell-generic">일반 샴푸 (통상)</div>
+          <div class="cell-boncho">본초</div>
+        </div>
+        <div class="compare-row">
+          <div class="rh">pH</div>
+          <div class="cell-generic">pH 8~9 · 강알칼리성</div>
+          <div class="cell-boncho">pH 4.5 · 약산성</div>
+        </div>
+        <div class="compare-row">
+          <div class="rh">세정 방식</div>
+          <div class="cell-generic">강한 계면활성제 위주</div>
+          <div class="cell-boncho">두피 산성막 범위의 순한 세정</div>
+        </div>
+        <div class="compare-row">
+          <div class="rh">컨디셔닝</div>
+          <div class="cell-generic">린스·트리트먼트 별도</div>
+          <div class="cell-boncho">샴푸 단계에서 함께 (린스리스 지향)</div>
+        </div>
+        <div class="compare-row">
+          <div class="rh">향</div>
+          <div class="cell-generic">강한 인공향 또는 진한 한방향</div>
+          <div class="cell-boncho">무향 처리</div>
+        </div>
+        <div class="compare-row">
+          <div class="rh">성분 설계</div>
+          <div class="cell-generic">설파이트·파라벤 포함 다수</div>
+          <div class="cell-boncho">무설파이트 · 무파라벤</div>
+        </div>
+        <div class="compare-row">
+          <div class="rh">패키징</div>
+          <div class="cell-generic">일반 플라스틱</div>
+          <div class="cell-boncho">PCR(재생 원료) 패키징</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW TO USE ================= -->
+  <section id="howto">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">HOW TO USE</span>
+        <h2 class="serif">린스 없이, 세 단계로</h2>
+      </div>
+      <div class="howto-grid">
+        <div class="howto-step reveal">
+          <div class="n mono">STEP 01</div>
+          <h3>충분히 적시기</h3>
+          <p>미온수로 두피와 모발을 충분히 적신 뒤, 적당량을 덜어 손 위에서 가볍게 풀어줍니다.</p>
+        </div>
+        <div class="howto-step reveal d1">
+          <div class="n mono">STEP 02</div>
+          <h3>두피 위주로 마사지</h3>
+          <p>모발보다 두피를 중심으로 1~2분간 부드럽게 마사지하듯 거품을 냅니다.</p>
+        </div>
+        <div class="howto-step reveal d2">
+          <div class="n mono">STEP 03</div>
+          <h3>깨끗이 헹구기</h3>
+          <p>미온수로 잔여감 없이 헹궈냅니다. 별도의 린스 없이 마무리해도 뻣뻣하지 않도록 설계했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SPEC ================= -->
+  <section class="spec" id="spec">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">SPECIFICATION</span>
+        <h2 class="serif">제품 사양 (시안)</h2>
+        <p class="lead" style="color:rgba(247,246,240,0.6);">일부 수치는 개발 단계의 예정 값으로, 출시 시 최종 확정됩니다.</p>
+      </div>
+      <div class="spec-table reveal d1">
+        <div class="spec-row"><span class="k">제품 타입</span><span class="v">약산성 컨디셔닝 샴푸</span></div>
+        <div class="spec-row"><span class="k">pH</span><span class="v">4.5 <small>±0.5 (예정)</small></span></div>
+        <div class="spec-row"><span class="k">용량</span><span class="v">500ml <small>예정</small></span></div>
+        <div class="spec-row"><span class="k">향</span><span class="v">무향</span></div>
+        <div class="spec-row"><span class="k">주요 특징</span><span class="v">무설파이트 · 무파라벤 · 린스리스</span></div>
+        <div class="spec-row"><span class="k">패키징</span><span class="v">PCR 재생 원료</span></div>
+        <div class="spec-row"><span class="k">사용 대상</span><span class="v">두피가 예민한 모든 모발 타입</span></div>
+        <div class="spec-row"><span class="k">출시 예정</span><span class="v">2026 하반기 <small>예정</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST ================= -->
+  <section class="trust" id="trust">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">WHY YOU CAN TRUST IT</span>
+        <h2 class="serif">감성이 아니라, 근거로 말합니다</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card reveal">
+          <div class="idx mono">EXPERT</div>
+          <h3>한의사 원장 성분 자문</h3>
+          <p>한방 성분 구성에 대해 한의사 원장과 자문 협업을 진행 중입니다. 처방이 아닌 성분 설계 자문으로, 정확한 표현 범위는 관련 규정 확인 후 공개 예정입니다.</p>
+        </div>
+        <div class="trust-card reveal d1">
+          <div class="idx mono">FIELD</div>
+          <h3>전국 헤어샵 현장 검증</h3>
+          <p>전국 헤어샵 원장님 네트워크를 통해 초기 샘플링을 진행하고 있습니다. 실험실이 아닌 실제 시술 현장에서 먼저 확인합니다.</p>
+        </div>
+        <div class="trust-card reveal d2">
+          <div class="idx mono">MATERIAL</div>
+          <h3>덜어내는 방식의 처방</h3>
+          <p>무설파이트 · 무파라벤 포뮬러와 PCR(재생 원료) 패키징으로, 두피와 환경 양쪽에 부담을 덜어내는 방향을 택했습니다.</p>
+        </div>
+      </div>
+      <p class="trust-note">※ 성분·인허가·한의사 자문 관련 문구는 화장품법 등 관련 규정 확인 후 최종 표기됩니다. 현재 페이지의 표현은 기획 시안 기준입니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= ROADMAP ================= -->
+  <section class="roadmap" id="roadmap">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">ROADMAP</span>
+        <h2 class="serif">출시까지, 이렇게 나아갑니다</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item done reveal">
+          <div class="q mono">2026 Q1</div>
+          <h3>성분 설계 · 자문</h3>
+          <p>한방 소재 후보군 선정과 한의사 성분 자문을 진행합니다.</p>
+          <span class="status">진행 중</span>
+        </div>
+        <div class="tl-item reveal d1">
+          <div class="q mono">2026 Q2</div>
+          <h3>헤어샵 샘플링</h3>
+          <p>원장님 네트워크를 통해 실제 시술 현장에서 초기 샘플을 검증합니다.</p>
+          <span class="status">예정</span>
+        </div>
+        <div class="tl-item reveal d2">
+          <div class="q mono">2026 Q3</div>
+          <h3>체험단 · 패키지 확정</h3>
+          <p>얼리버드 체험단을 모집하고 패키지·전성분을 확정합니다.</p>
+          <span class="status">예정</span>
+        </div>
+        <div class="tl-item reveal d3">
+          <div class="q mono">2026 Q4</div>
+          <h3>정식 출시</h3>
+          <p>브랜드명 확정과 함께 정식 출시를 목표로 합니다.</p>
+          <span class="status">목표</span>
+        </div>
+      </div>
+      <p class="roadmap-note">※ 위 일정은 개발 목표 기준이며, 인허가·생산 상황에 따라 변동될 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= FOUNDER ================= -->
+  <section id="founder">
+    <div class="wrap">
+      <div class="founder-grid">
+        <div class="founder-photo reveal">창업자 사진 영역</div>
+        <div class="reveal d1">
+          <p class="founder-quote">"헤어샵에서 1년, 강의실에서 수백 명의 두피를 봤습니다.<br>가장 많이 들은 말은 결국 하나였어요 —<br><span>"덜 자극적인데, 부드럽기까지 한 샴푸는 없나요?"</span>"</p>
+          <p class="founder-body">현장에서 반복해서 마주친 이 질문이 본초의 출발점이 되었습니다. 두피를 직접 만지고, 컬러와 이론을 가르치고, 다시 브랜드로 옮겨오는 과정 전부가 이 한 문장을 풀기 위한 시간이었습니다.</p>
+          <div class="founder-cred">
+            <div>헤어살롱 운영 1년</div>
+            <div>헤어이론 · 컬러 강사</div>
+            <div>마케팅 대행업 1년차</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SALON NETWORK ================= -->
+  <section class="salon" id="salon">
+    <div class="wrap">
+      <div class="salon-grid">
+        <div class="reveal">
+          <span class="kicker">DISTRIBUTION</span>
+          <h2 class="serif" style="font-size:clamp(24px,3vw,32px); margin-bottom:18px;">헤어샵에서 시작해,<br>헤어샵과 함께 자랍니다</h2>
+          <p style="color:var(--ink-soft); font-size:15px; max-width:44ch;">현장에서 발견한 문제를 다시 현장에서 검증합니다. 전국 원장님 네트워크는
+            초기 임상 샘플링과 B2B 유통의 첫 번째 채널이자, 가장 정직한 피드백 창구입니다.</p>
+        </div>
+        <div class="map-visual reveal d1">
+          <div class="dot" style="top:22%; left:35%;"></div>
+          <div class="dot" style="top:38%; left:58%;"></div>
+          <div class="dot" style="top:52%; left:30%;"></div>
+          <div class="dot" style="top:64%; left:68%;"></div>
+          <div class="dot" style="top:30%; left:74%;"></div>
+          <div class="dot" style="top:70%; left:44%;"></div>
+          <div class="count">
+            <div class="num mono">-- +</div>
+            <div class="lbl">협업 예정 헤어샵 (모집 중)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EARLY ACCESS ================= -->
+  <section id="early">
+    <div class="wrap">
+      <div class="early reveal">
+        <div class="early-grid">
+          <div>
+            <span class="kicker">EARLY ACCESS</span>
+            <h2 class="serif">가장 먼저 써보고 싶다면</h2>
+            <p>정식 출시 전, 얼리버드 알림과 초기 체험단 모집 소식을 가장 먼저 보내드립니다.</p>
+            <ul>
+              <li>정식 출시 · 사전 예약 알림</li>
+              <li>초기 체험단 우선 모집 안내</li>
+              <li>헤어샵 원장님 대상 B2B 파트너 소식</li>
+            </ul>
+          </div>
+          <div>
+            <form class="waitlist" id="waitlistForm" novalidate>
+              <input type="text" id="wl-name" placeholder="이름 (선택)" autocomplete="name">
+              <input type="email" id="wl-email" placeholder="이메일 주소" autocomplete="email" required>
+              <!-- honeypot: 사람에게는 보이지 않음 -->
+              <div class="hp" aria-hidden="true">
+                <label>이 칸은 비워두세요<input type="text" id="wl-company" tabindex="-1" autocomplete="off"></label>
+              </div>
+              <div class="radio-row">
+                <label><input type="radio" name="type" value="consumer" checked> 소비자로 관심 있어요</label>
+                <label><input type="radio" name="type" value="salon"> 헤어샵 원장입니다</label>
+              </div>
+              <label class="consent"><input type="checkbox" id="wl-consent"> <span>마케팅 정보 수신에 동의합니다. 등록하신 정보는 출시·체험단 안내 목적으로만 사용됩니다.</span></label>
+              <p class="err-text" id="wl-err" role="alert"></p>
+              <button type="submit" class="btn-primary" style="width:100%;">얼리버드 등록하기</button>
+              <p class="waitlist-note">등록 시 정식 출시 알림 및 체험단 모집 안내만 발송됩니다. (시안 단계 · 실제 전송 기능 미연결)</p>
+            </form>
+            <div id="waitlist-msg" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">FAQ</span>
+        <h2 class="serif">자주 묻는 질문</h2>
+      </div>
+      <div class="faq-list reveal d1">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">한방인데 왜 향이 안 나나요? <span class="plus mono">+</span></button>
+          <div class="faq-a"><p>한방 특유의 진한 향이 오히려 사용을 꺼리게 만드는 경우가 많아, 향 성분을 최소화한 무향 처리를 택했습니다. 성분 자체의 효과는 향과 무관하게 설계했습니다.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">pH4.5가 왜 중요한가요? <span class="plus mono">+</span></button>
+          <div class="faq-a"><p>건강한 두피는 pH4.5~5.5의 약산성 보호막을 갖고 있습니다. 강알칼리성 세정은 이 보호막을 무너뜨려 자극과 건조함으로 이어질 수 있습니다.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">염색모나 펌한 모발에도 쓸 수 있나요? <span class="plus mono">+</span></button>
+          <div class="faq-a"><p>약산성 세정은 일반적으로 시술한 모발에도 부담이 적은 방향입니다. 다만 개인의 두피·모발 상태에 따라 다를 수 있어, 사용 전 소량 테스트를 권장합니다.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">가격과 출시일은 언제 공개되나요? <span class="plus mono">+</span></button>
+          <div class="faq-a"><p>정식 가격과 출시일은 개발·인허가 일정에 맞춰 확정됩니다. 얼리버드로 등록해 두시면 확정되는 대로 가장 먼저 안내해 드립니다. (현재 2026 하반기 출시 목표)</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">아직 브랜드명이 확정되지 않았나요? <span class="plus mono">+</span></button>
+          <div class="faq-a"><p>네, '본초'는 개발 단계의 워킹네임입니다. 정식 브랜드명은 상표 검토 절차를 거쳐 확정 후 별도로 공지됩니다.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">한의사 자문 내용은 제품에 어떻게 반영되나요? <span class="plus mono">+</span></button>
+          <div class="faq-a"><p>성분 구성 단계에서 자문을 받고 있으며, 구체적인 표현 범위는 화장품 표시광고 관련 규정 확인 후 확정해 안내할 예정입니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER / PARTNER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="partner-box">
+      <div>
+        <h2 class="serif">투자자 · 정부지원사업 담당자이신가요?</h2>
+        <p>시장 데이터와 사업 계획이 담긴 브랜드 소개 자료를 보내드립니다. 사업계획서, 초기 트랙션, 헤어샵 네트워크 현황을 정리해 드립니다.</p>
+      </div>
+      <div class="partner-actions">
+        <a href="mailto:hello@boncho-example.com?subject=본초 브랜드 소개 자료 요청">브랜드 소개 자료 요청</a>
+        <a href="#early">투자·제휴 문의하기</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#problem">문제</a>
+      <a href="#solution">제품</a>
+      <a href="#ingredients">성분</a>
+      <a href="#compare">비교</a>
+      <a href="#trust">신뢰 근거</a>
+      <a href="#roadmap">로드맵</a>
+      <a href="#faq">FAQ</a>
+      <a href="#early">얼리버드</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 본초(가칭). 브랜드명 및 일부 수치는 확정 전 시안입니다.</span>
+      <span class="mono">pH 4.5 HANBANG HAIRCARE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // JS 활성화 표시 (스크롤 등장 애니메이션은 JS 있을 때만)
+  document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
+
+  // ---- FAQ 아코디언 ----
+  function toggleFaq(btn){
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el=>{
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // ---- 얼리버드 폼 ----
+  function handleWaitlist(e){
+    e.preventDefault();
+    const form = document.getElementById('waitlistForm');
+    const emailInput = document.getElementById('wl-email');
+    const email = emailInput.value.trim();
+    const consent = document.getElementById('wl-consent');
+    const honeypot = document.getElementById('wl-company').value;
+    const err = document.getElementById('wl-err');
+    const msg = document.getElementById('waitlist-msg');
+    err.textContent = '';
+    emailInput.classList.remove('field-err');
+
+    // 봇 차단 (honeypot에 값이 있으면 조용히 종료)
+    if(honeypot) return;
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!emailOk){
+      err.textContent = '올바른 이메일 주소를 입력해 주세요.';
+      emailInput.classList.add('field-err');
+      emailInput.focus();
+      return;
+    }
+    if(!consent.checked){
+      err.textContent = '마케팅 정보 수신 동의가 필요합니다.';
+      consent.focus();
+      return;
+    }
+
+    const type = form.querySelector('input[name="type"]:checked').value;
+    const typeLabel = type === 'salon' ? '헤어샵 원장' : '소비자';
+    form.style.display = 'none';
+    msg.style.display = 'block';
+    msg.innerHTML = '<strong>등록 완료!</strong><br>' + email + ' (' + typeLabel + ')로 가장 먼저 소식을 전해드릴게요.<br><span style="opacity:.6; font-size:12px;">시안 단계 · 실제 전송 기능은 아직 연결되지 않았습니다.</span>';
+  }
+  document.getElementById('waitlistForm').addEventListener('submit', handleWaitlist);
+
+  // ---- 모바일 메뉴 ----
+  (function(){
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', ()=>{
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    }));
+  })();
+
+  // ---- 스크롤 진행 바 ----
+  (function(){
+    const bar = document.getElementById('scrollProgress');
+    function onScroll(){
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      bar.style.width = (scrolled * 100).toFixed(1) + '%';
+    }
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  // ---- 스크롤 등장 애니메이션 ----
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(el=>el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    els.forEach(el=>io.observe(el));
+    // 안전장치: 3초 뒤 남은 요소 모두 표시
+    setTimeout(()=>els.forEach(el=>el.classList.add('in')), 3000);
+  })();
+
+  // ---- 내비 활성 링크 ----
+  (function(){
+    const links = Array.from(document.querySelectorAll('.navlinks a'));
+    const map = new Map();
+    links.forEach(a=>{
+      const id = a.getAttribute('href').slice(1);
+      const sec = document.getElementById(id);
+      if(sec) map.set(sec, a);
+    });
+    if(!('IntersectionObserver' in window) || map.size===0) return;
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          const a = map.get(entry.target);
+          if(a) a.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    map.forEach((_, sec)=>io.observe(sec));
+  })();
+</script>
+
+</body>
+</html>
