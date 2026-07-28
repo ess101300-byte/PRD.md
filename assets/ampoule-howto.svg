@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="앰플 사용법">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2f6"/><stop offset="1" stop-color="#ffd9e6"/></linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.25" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe4d2"/><stop offset="1" stop-color="#ffcbb0"/></linearGradient>
+    <radialGradient id="drop" cx="0.4" cy="0.32" r="0.8"><stop offset="0" stop-color="#ffd7e6"/><stop offset="1" stop-color="#ff5f92"/></radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/><rect width="600" height="600" fill="url(#glow)"/>
+  <!-- palm -->
+  <path d="M150 470 q-10 -150 60 -190 q10 -70 40 -66 q6 -60 34 -56 q10 -50 40 -44 q30 -60 52 6 q60 20 44 120 q60 30 30 130 q-20 90 -150 96 q-120 6 -150 0 z" fill="url(#skin)"/>
+  <path d="M150 470 q-10 -150 60 -190" fill="none" stroke="#f0b294" stroke-width="4" opacity="0.5"/>
+  <!-- drops on palm -->
+  <path d="M300 250 c 20 28 34 40 34 58 a34 34 0 1 1 -68 0 c0 -18 14 -30 34 -58 z" fill="url(#drop)"/>
+  <ellipse cx="288" cy="298" rx="12" ry="8" fill="#fff" opacity="0.5"/>
+  <circle cx="360" cy="330" r="16" fill="url(#drop)"/>
+  <circle cx="250" cy="350" r="12" fill="url(#drop)"/>
+  <text x="300" y="548" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="800" fill="#d6316a">2~3방울 덜어 부드럽게 흡수</text>
+</svg>

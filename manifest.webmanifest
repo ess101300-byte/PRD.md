@@ -1,12 +1,12 @@
 {
-  "name": "오늘의 명언",
-  "short_name": "명언",
-  "description": "매일 아침 9시, 오늘의 명언 3개를 알림으로 받아보세요.",
+  "name": "GLOWLAB · 피부과학이 만든 뷰티",
+  "short_name": "GLOWLAB",
+  "description": "피부과학 기반 스킨케어와 홈 뷰티 디바이스 데모 커머스.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#fff3e0",
-  "theme_color": "#f7b267",
+  "background_color": "#f7f9ff",
+  "theme_color": "#2f6bff",
   "lang": "ko",
   "icons": [
     {
