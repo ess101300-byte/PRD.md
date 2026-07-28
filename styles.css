@@ -491,6 +491,27 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero-stats { gap: 18px; }
 }
 
+/* =========================================================
+   Real product images (SVG renders)
+   ========================================================= */
+.card .thumb img,
+.pd-main img,
+.pd-thumbs img,
+.detail-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.hero-img {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 76%; border-radius: 28px; box-shadow: var(--shadow-lg);
+}
+.hero .spark { z-index: 2; }
+
+.device-img {
+  justify-self: center; width: 260px; max-width: 100%; border-radius: 26px;
+  box-shadow: var(--shadow-lg);
+}
+
+.detail-hero { overflow: hidden; }
+
 /* reduce motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; scroll-behavior: auto; }

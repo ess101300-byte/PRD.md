@@ -55,14 +55,14 @@
      HOME — render product grids
      ========================================================= */
   const PRODUCTS = [
-    { rank: 1, cls: "pink", mock: "pink", mk: "PDRN<br>앰플", name: "PDRN 핑크 콜라겐 나이트 앰플 30ml", off: 34, now: 29000, was: 44000, rate: 4.9, cnt: "8,412", tag: "BEST" },
-    { rank: 2, cls: "blue", mock: "", mk: "제로<br>패드", name: "제로 모공 토너 패드 70매", off: 30, now: 21000, was: 30000, rate: 4.8, cnt: "12,908", tag: "1+1" },
-    { rank: 3, cls: "cream", mock: "mint", mk: "비타C<br>세럼", name: "딥 비타C 브라이트닝 세럼 30ml", off: 25, now: 27000, was: 36000, rate: 4.8, cnt: "6,120", tag: null },
-    { rank: 4, cls: "lav", mock: "", mk: "레드<br>크림", name: "레드 카밍 수분 크림 50ml", off: 20, now: 25600, was: 32000, rate: 4.7, cnt: "4,530", tag: null },
-    { rank: null, cls: "mint", mock: "mint", mk: "시카<br>토너", name: "시카 진정 저자극 토너 200ml", off: 22, now: 17900, was: 23000, rate: 4.8, cnt: "3,201", tag: "NEW", tagBlue: true },
-    { rank: null, cls: "blue", mock: "", mk: "부스터<br>프로", name: "부스터 프로 홈 뷰티 디바이스", off: 15, now: 169000, was: 199000, rate: 4.9, cnt: "2,845", tag: "HOT" },
-    { rank: null, cls: "cream", mock: "", mk: "선<br>에센스", name: "데일리 톤업 선에센스 SPF50+ 50ml", off: 18, now: 18800, was: 23000, rate: 4.7, cnt: "5,677", tag: null },
-    { rank: null, cls: "pink", mock: "pink", mk: "콜라겐<br>마스크", name: "핑크 콜라겐 탄력 마스크팩 10매", off: 40, now: 14400, was: 24000, rate: 4.8, cnt: "9,014", tag: "40%", tagBlue: false },
+    { rank: 1, cls: "pink", img: "assets/ampoule-pink.svg", name: "PDRN 핑크 콜라겐 나이트 앰플 30ml", off: 34, now: 29000, was: 44000, rate: 4.9, cnt: "8,412", tag: "BEST" },
+    { rank: 2, cls: "blue", img: "assets/pad-jar.svg", name: "제로 모공 토너 패드 70매", off: 30, now: 21000, was: 30000, rate: 4.8, cnt: "12,908", tag: "1+1" },
+    { rank: 3, cls: "cream", img: "assets/serum-vitc.svg", name: "딥 비타C 브라이트닝 세럼 30ml", off: 25, now: 27000, was: 36000, rate: 4.8, cnt: "6,120", tag: null },
+    { rank: 4, cls: "lav", img: "assets/cream-jar.svg", name: "레드 카밍 수분 크림 50ml", off: 20, now: 25600, was: 32000, rate: 4.7, cnt: "4,530", tag: null },
+    { rank: null, cls: "mint", img: "assets/toner-cica.svg", name: "시카 진정 저자극 토너 200ml", off: 22, now: 17900, was: 23000, rate: 4.8, cnt: "3,201", tag: "NEW", tagBlue: true },
+    { rank: null, cls: "blue", img: "assets/device.svg", name: "부스터 프로 홈 뷰티 디바이스", off: 15, now: 169000, was: 199000, rate: 4.9, cnt: "2,845", tag: "HOT" },
+    { rank: null, cls: "cream", img: "assets/sun-tube.svg", name: "데일리 톤업 선에센스 SPF50+ 50ml", off: 18, now: 18800, was: 23000, rate: 4.7, cnt: "5,677", tag: null },
+    { rank: null, cls: "pink", img: "assets/mask-pack.svg", name: "핑크 콜라겐 탄력 마스크팩 10매", off: 40, now: 14400, was: 24000, rate: 4.8, cnt: "9,014", tag: "40%", tagBlue: false },
   ];
 
   function heartSvg() {
@@ -72,12 +72,11 @@
   function cardHtml(p) {
     const rank = p.rank ? `<span class="rank">${p.rank}</span>` : "";
     const tag = p.tag ? `<span class="tag ${p.tagBlue ? "blue" : ""}">${p.tag}</span>` : "";
-    const mockCls = "mock" + (p.mock ? " " + p.mock : "");
     return `
       <article class="card">
         <a href="product.html" class="thumb t-${p.cls}">
           ${rank}${tag}
-          <div class="${mockCls}"><span class="mk">${p.mk}</span></div>
+          <img src="${p.img}" alt="${p.name}" loading="lazy" width="600" height="600" />
         </a>
         <button class="wish" aria-label="위시리스트">${heartSvg()}</button>
         <div class="info">
@@ -119,12 +118,12 @@
   const pdMain = $("#pdMain");
   if (pdMain) {
     // gallery thumbnails
+    const pdMainImg = pdMain.querySelector("img");
     $$("#pdThumbs button").forEach((btn) => {
       btn.addEventListener("click", () => {
         $$("#pdThumbs button").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-        const cls = btn.dataset.cls;
-        pdMain.innerHTML = `<div class="mock ${cls}"><span class="mk">PDRN<br>앰플</span></div>`;
+        if (pdMainImg && btn.dataset.img) pdMainImg.src = btn.dataset.img;
       });
     });
 

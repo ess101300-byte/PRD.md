@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="핵심 성분 PDRN">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafaf4"/><stop offset="1" stop-color="#c8efe2"/></linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.25" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="node" cx="0.4" cy="0.35" r="0.75"><stop offset="0" stop-color="#8fe3c9"/><stop offset="1" stop-color="#17a888"/></radialGradient>
+    <radialGradient id="nodeP" cx="0.4" cy="0.35" r="0.75"><stop offset="0" stop-color="#ffb3cf"/><stop offset="1" stop-color="#ff5f92"/></radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/><rect width="600" height="600" fill="url(#glow)"/>
+  <!-- molecule bonds -->
+  <g stroke="#1ba883" stroke-width="8" stroke-linecap="round" opacity="0.7">
+    <path d="M300 300 L200 200"/><path d="M300 300 L410 210"/><path d="M300 300 L210 410"/>
+    <path d="M300 300 L400 400"/><path d="M200 200 L150 320"/><path d="M410 210 L460 330"/>
+  </g>
+  <circle cx="300" cy="300" r="46" fill="url(#nodeP)"/>
+  <text x="300" y="308" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="900" fill="#fff">PDRN</text>
+  <circle cx="200" cy="200" r="30" fill="url(#node)"/>
+  <circle cx="410" cy="210" r="30" fill="url(#node)"/>
+  <circle cx="210" cy="410" r="26" fill="url(#node)"/>
+  <circle cx="400" cy="400" r="26" fill="url(#node)"/>
+  <circle cx="150" cy="320" r="20" fill="url(#node)"/>
+  <circle cx="460" cy="330" r="20" fill="url(#node)"/>
+  <circle cx="192" cy="192" r="9" fill="#fff" opacity="0.6"/>
+  <text x="300" y="530" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="800" fill="#128a6b">연어 유래 PDRN 3% 고농축</text>
+</svg>

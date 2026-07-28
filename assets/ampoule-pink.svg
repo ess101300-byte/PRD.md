@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="PDRN 핑크 콜라겐 나이트 앰플">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2f6"/><stop offset="0.55" stop-color="#ffd9e6"/><stop offset="1" stop-color="#ffc2d6"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="0.32" cy="0.28" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff9dbe"/><stop offset="0.18" stop-color="#ffd0e0"/>
+      <stop offset="0.5" stop-color="#ff7da8"/>
+      <stop offset="0.85" stop-color="#e85f8f"/><stop offset="1" stop-color="#d64f80"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff9cc0"/><stop offset="1" stop-color="#ff5f92"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3f4a"/><stop offset="0.5" stop-color="#16181d"/><stop offset="1" stop-color="#2a2e37"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c9ccd3"/><stop offset="0.5" stop-color="#f4f5f7"/><stop offset="1" stop-color="#aeb2ba"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <rect width="600" height="600" fill="url(#bgGlow)"/>
+
+  <!-- ground shadow -->
+  <ellipse cx="300" cy="512" rx="132" ry="26" fill="#c34f77" opacity="0.32" filter="url(#soft)"/>
+
+  <!-- dropper cap -->
+  <rect x="256" y="86" width="88" height="70" rx="12" fill="url(#cap)"/>
+  <rect x="256" y="96" width="88" height="10" fill="#000" opacity="0.18"/>
+  <rect x="272" y="150" width="56" height="20" rx="4" fill="url(#metal)"/>
+  <!-- rubber bulb -->
+  <rect x="282" y="70" width="36" height="26" rx="9" fill="#ff8fb4"/>
+  <rect x="282" y="70" width="36" height="12" rx="9" fill="#ffb4cd"/>
+
+  <!-- bottle body -->
+  <rect x="212" y="168" width="176" height="300" rx="30" fill="url(#glass)"/>
+  <!-- liquid inner -->
+  <rect x="232" y="196" width="136" height="252" rx="20" fill="url(#liquid)" opacity="0.92"/>
+  <!-- dropper tube inside -->
+  <rect x="294" y="200" width="12" height="232" rx="6" fill="#ffffff" opacity="0.45"/>
+  <!-- left specular highlight -->
+  <rect x="228" y="186" width="20" height="266" rx="10" fill="#ffffff" opacity="0.5"/>
+  <rect x="256" y="188" width="8" height="262" rx="4" fill="#ffffff" opacity="0.25"/>
+
+  <!-- label -->
+  <rect x="230" y="286" width="140" height="126" rx="12" fill="#ffffff" opacity="0.96"/>
+  <text x="300" y="316" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="16" font-weight="800" letter-spacing="2" fill="#2f6bff">GLOWLAB</text>
+  <text x="300" y="356" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="34" font-weight="900" fill="#ff3d78">PDRN</text>
+  <text x="300" y="380" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="14" font-weight="700" fill="#6b7280">핑크 콜라겐 앰플</text>
+  <text x="300" y="400" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" font-weight="600" fill="#9aa0ab" letter-spacing="1">NIGHT AMPOULE · 30ml</text>
+</svg>
