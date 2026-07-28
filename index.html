@@ -3,49 +3,262 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f7b267" />
-  <title>오늘의 명언 · 아침 9시 알림</title>
+  <meta name="theme-color" content="#2f6bff" />
+  <title>GLOWLAB · 피부과학이 만든 뷰티</title>
+  <meta name="description" content="글로우랩 - 피부과학 기반 스킨케어와 홈 뷰티 디바이스. 제로 모공 패드, PDRN 핑크 콜라겐 앰플, 부스터 프로 디바이스." />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="icon.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg"></div>
+  <!-- Announcement -->
+  <div class="announce">🚚 <b>5만원 이상 무료배송</b> · 첫 구매 <b>15% 쿠폰</b> 즉시 지급 · 오늘 오후 2시 전 주문 시 당일 발송</div>
 
-  <main class="wrap">
-    <header class="hero">
-      <div class="sun" aria-hidden="true"></div>
-      <p class="date" id="date">—</p>
-      <h1>오늘의 명언</h1>
-      <p class="subtitle">매일 아침 9시, 세 개의 문장으로 하루를 시작하세요.</p>
-    </header>
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <span class="cube" aria-hidden="true"></span>GLOW<em>LAB</em>
+      </a>
+      <nav class="nav-menu" aria-label="주요 메뉴">
+        <a href="#best">베스트</a>
+        <a href="#device" class="hot">디바이스</a>
+        <a href="#skincare">스킨케어</a>
+        <a href="product.html">신제품</a>
+        <a href="#event">이벤트</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="검색">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="위시리스트">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="장바구니">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="icon-btn hamburger" id="menuBtn" aria-label="메뉴 열기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <section class="notify-card">
-      <div class="notify-info">
-        <span class="bell" aria-hidden="true">🔔</span>
-        <div>
-          <p class="notify-title" id="notifyTitle">9시 알림 켜기</p>
-          <p class="notify-desc" id="notifyDesc">매일 오전 9시에 오늘의 명언 알림을 받아보세요.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-badge">⭐ 누적 판매 1,200만 개 돌파</span>
+        <h1>피부과학이 만든<br /><span class="hl">진짜 변화</span>를 경험하세요</h1>
+        <p class="lead">더마 연구소가 설계한 고효능 성분과 홈 뷰티 디바이스로,
+          병원에 가지 않아도 매일 피부가 달라집니다.</p>
+        <div class="hero-cta">
+          <a href="product.html" class="btn primary lg">베스트셀러 보기</a>
+          <a href="#device" class="btn outline lg">디바이스 알아보기</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="num">4.9★</div><div class="lbl">평균 리뷰 평점</div></div>
+          <div><div class="num">98%</div><div class="lbl">재구매 의향</div></div>
+          <div><div class="num">120만+</div><div class="lbl">누적 리뷰 수</div></div>
         </div>
       </div>
-      <div class="notify-actions">
-        <button id="enableBtn" class="btn primary">알림 켜기</button>
-        <button id="testBtn" class="btn ghost" hidden>테스트 알림</button>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="blob"></div>
+        <div class="bottle">
+          <span class="cap"></span>
+          <span class="drop"></span>
+          <span class="label"><span class="k">PDRN</span><span class="t">핑크 콜라겐 앰플</span></span>
+        </div>
+        <div class="spark a"><div><div class="n">15%</div><small>첫구매 할인</small></div></div>
+        <div class="spark b"><div><div class="n">4.9</div><small>★ 리뷰</small></div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <nav class="chips" id="chips" aria-label="카테고리 필터"></nav>
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <ul>
+      <li>DERMATOLOGIST TESTED</li><li>비건 인증 성분</li><li>무료 반품</li>
+      <li>당일 발송</li><li>피부 저자극 테스트 완료</li><li>NO 인공향</li>
+      <li>DERMATOLOGIST TESTED</li><li>비건 인증 성분</li><li>무료 반품</li>
+      <li>당일 발송</li><li>피부 저자극 테스트 완료</li><li>NO 인공향</li>
+    </ul>
+  </div>
 
-    <section class="quotes" id="quotes" aria-live="polite"></section>
+  <!-- Category quick links -->
+  <section class="section">
+    <div class="container">
+      <div class="cats">
+        <a class="cat" href="#best"><div class="ico">🔥</div><b>베스트</b><span>가장 많이 팔린</span></a>
+        <a class="cat" href="#device"><div class="ico">📱</div><b>디바이스</b><span>홈 뷰티 기기</span></a>
+        <a class="cat" href="#skincare"><div class="ico">💧</div><b>세럼·앰플</b><span>고농축 케어</span></a>
+        <a class="cat" href="#skincare"><div class="ico">🧴</div><b>토너·패드</b><span>데일리 각질</span></a>
+        <a class="cat" href="#event"><div class="ico">🎁</div><b>기획세트</b><span>최대 40% ↓</span></a>
+      </div>
+    </div>
+  </section>
 
-    <footer class="foot">
-      <button id="shuffleHint" class="link" disabled>명언은 매일 자정에 새로 바뀝니다</button>
-      <p class="tiny" id="swStatus"></p>
-    </footer>
-  </main>
+  <!-- Best sellers -->
+  <section class="section" id="best" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Best Sellers</p>
+          <h2 class="section-title">이번 주 랭킹 TOP</h2>
+        </div>
+        <a class="more" href="product.html">전체보기 →</a>
+      </div>
+      <div class="grid" id="bestGrid"><!-- injected by main.js --></div>
+    </div>
+  </section>
 
-  <script src="quotes.js"></script>
-  <script src="app.js"></script>
+  <!-- Device / tech banner -->
+  <section class="section" id="device" style="padding-top:0">
+    <div class="container">
+      <div class="tech">
+        <div class="tech-inner">
+          <div>
+            <p class="eyebrow">GLOWLAB DEVICE</p>
+            <h2>집에서 만나는<br />프로페셔널 케어</h2>
+            <p>EMS·부스팅 온열·저주파를 하나로. 부스터 프로가 스킨케어 성분의 흡수를 돕고
+              탄력 관리를 매일 이어갑니다.</p>
+            <div class="feat">
+              <div><b>3-in-1</b><span>모드 통합</span></div>
+              <div><b>4단계</b><span>온열 강도</span></div>
+              <div><b>IPX7</b><span>생활 방수</span></div>
+            </div>
+            <a href="product.html" class="btn pink lg">부스터 프로 자세히 보기</a>
+          </div>
+          <div class="device" aria-hidden="true">
+            <span class="glow"></span>
+            <span class="btn-dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skincare grid -->
+  <section class="section" id="skincare" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Skincare</p>
+          <h2 class="section-title">데일리 스킨케어</h2>
+        </div>
+        <a class="more" href="product.html">전체보기 →</a>
+      </div>
+      <div class="grid" id="skincareGrid"><!-- injected by main.js --></div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="benefits">
+        <div class="benefit"><div class="ic">🧪</div><b>피부과 테스트 완료</b><p>전 제품 저자극 임상 테스트</p></div>
+        <div class="benefit"><div class="ic">🌱</div><b>비건 & 클린뷰티</b><p>동물성 원료·유해성분 배제</p></div>
+        <div class="benefit"><div class="ic">🚚</div><b>당일 무료배송</b><p>오후 2시 전 주문 시</p></div>
+        <div class="benefit"><div class="ic">↩️</div><b>30일 환불보장</b><p>피부에 안 맞으면 100% 환불</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section reviews">
+    <div class="container">
+      <div class="center" style="margin-bottom:34px">
+        <p class="eyebrow">Real Reviews</p>
+        <h2 class="section-title">120만 개의 진짜 후기</h2>
+        <p class="section-sub">실제 구매 고객이 남긴 리뷰예요.</p>
+      </div>
+      <div class="rev-grid">
+        <article class="rev">
+          <div class="stars">★★★★★</div>
+          <p>“모공 패드 쓰고 나서 화장이 확실히 잘 먹어요. 자극 없이 매일 써도 괜찮은 게 제일 좋아요.”</p>
+          <div class="who"><div class="av">김</div><div><b>김*연</b><span>제로 모공 패드 · 재구매</span></div></div>
+        </article>
+        <article class="rev">
+          <div class="stars">★★★★★</div>
+          <p>“PDRN 앰플 2주 썼는데 아침에 피부 결이 정돈된 느낌. 끈적임 없이 흡수돼서 만족해요.”</p>
+          <div class="who"><div class="av">박</div><div><b>박*진</b><span>PDRN 핑크 콜라겐 앰플</span></div></div>
+        </article>
+        <article class="rev">
+          <div class="stars">★★★★☆</div>
+          <p>“부스터 프로 온열이 생각보다 좋아요. 저녁 루틴에 쓰면 다음 날 탄력이 다른 게 느껴져요.”</p>
+          <div class="who"><div class="av">이</div><div><b>이*수</b><span>부스터 프로 디바이스</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event / newsletter -->
+  <section class="section" id="event">
+    <div class="container">
+      <div class="news">
+        <p class="eyebrow">Membership</p>
+        <h2>지금 가입하고 15% 쿠폰 받기</h2>
+        <p>신제품 소식과 멤버 전용 혜택을 가장 먼저 받아보세요.</p>
+        <form id="newsForm">
+          <input type="email" placeholder="이메일 주소를 입력하세요" required aria-label="이메일" />
+          <button type="submit" class="btn primary">쿠폰 받기</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="cols">
+        <div>
+          <div class="brand"><span class="cube" aria-hidden="true"></span>GLOW<em style="color:#7fa6ff;font-style:normal">LAB</em></div>
+          <p class="desc">피부과학 기반의 스킨케어와 홈 뷰티 디바이스를 만드는 더마 코스메틱 브랜드입니다.</p>
+          <div class="socials">
+            <a href="#" aria-label="인스타그램"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></a>
+            <a href="#" aria-label="유튜브"><svg viewBox="0 0 24 24" fill="#fff"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.7 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.8.5 7.9.5 7.9.5s6.1 0 7.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.3-3.8.3-3.8s0-2.6-.3-3.8zM10 15V9l5 3z"/></svg></a>
+            <a href="#" aria-label="카카오"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 4C7 4 3 7.1 3 10.9c0 2.4 1.7 4.6 4.2 5.8-.2.7-.7 2.6-.8 3 0 .3.2.3.4.2.2-.1 2.7-1.8 3.8-2.6.5.1 1 .1 1.4.1 5 0 9-3.1 9-6.9S17 4 12 4z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>쇼핑</h4>
+          <a href="#best">베스트셀러</a><a href="#device">디바이스</a><a href="#skincare">스킨케어</a><a href="#event">기획세트</a>
+        </div>
+        <div>
+          <h4>고객지원</h4>
+          <a href="#">주문/배송 조회</a><a href="#">교환/반품</a><a href="#">FAQ</a><a href="#">1:1 문의</a>
+        </div>
+        <div>
+          <h4>회사</h4>
+          <a href="#">브랜드 스토리</a><a href="#">성분 안전성</a><a href="#">채용</a><a href="#">제휴 문의</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span>(주)글로우랩 · 대표 홍길동 · 사업자등록번호 000-00-00000 · 서울시 강남구 테헤란로 000</span>
+        <span>© 2026 GLOWLAB. 데모용 샘플 사이트입니다.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer">
+    <div class="scrim" data-close></div>
+    <div class="panel">
+      <button class="icon-btn close" id="drawerClose" aria-label="닫기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <a class="d-link" href="#best" data-close>베스트</a>
+      <a class="d-link" href="#device" data-close>디바이스</a>
+      <a class="d-link" href="#skincare" data-close>스킨케어</a>
+      <a class="d-link" href="product.html">신제품</a>
+      <a class="d-link" href="#event" data-close>이벤트</a>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="main.js"></script>
 </body>
 </html>
